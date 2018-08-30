@@ -25,7 +25,7 @@ class App extends Component {
     return this.state.list.map((item, index) => {
       return <div><p key={index}>{item}<button>X</button></p></div>
     })
-  };
+  }
 
   render() {
     return (
