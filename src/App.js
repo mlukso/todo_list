@@ -18,7 +18,7 @@ class App extends Component {
         done: false,
       };
   }
-  // user has to add items to the list
+
   handleInputChange=(e) => {
     this.setState({inputValue: e.target.value})
   };
@@ -34,7 +34,7 @@ class App extends Component {
 
   handleRemoveItem=(item, index) => {
     const removeItem = this.state.list.slice();
-    removeItem.splice(index, 1)
+    removeItem.splice(index, 1);
     this.setState({
       list: removeItem
     })
@@ -52,22 +52,11 @@ class App extends Component {
     }
   }
 
-  // isDone(e){
-  //   e.target.value = 'new'
-  // }
-
   renderButton=() => {
     if(this.state.inputValue){
       return <button onClick={this.handleInputSubmit}>Add ToDo</button>
     }
   };
-
-  // renderList=() => {
-  //   return this.state.list.map((item, id) => {
-  //     const listItems = `${item}`
-  //     return <ul><li key={id}>{listItems}<button>X</button></li></ul>
-  //   })
-  // };
 
   renderList = () => {
     return this.state.list.map((item, index) => 
