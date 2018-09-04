@@ -15,7 +15,6 @@ class App extends Component {
       this.state = {
         inputValue: '',
         list: [],
-        done: false,
       };
   }
 
@@ -41,6 +40,7 @@ class App extends Component {
   };
 
   toggleTodoDone=(item, index) =>{
+    console.log(item, 'working')
     if (this.state.done === false){
       this.setState({
         done: true,
@@ -61,7 +61,7 @@ class App extends Component {
   renderList = () => {
     return this.state.list.map((item, index) => 
       <ul>
-        <li key={index} style={this.props.className}>
+        <li key={index}>
           {item} 
           <button onClick={()=>{this.toggleTodoDone(item, index)}}>✓</button>
           <button onClick={()=>{this.handleRemoveItem(item, index)}}>X</button>
@@ -73,7 +73,7 @@ class App extends Component {
     return (
       <div>
         <form>
-        <h2 style={stylingObject}>My ToDo List</h2>
+        <h2 style={stylingObject}>Add a Todo</h2>
         <input placeholder='type something...' value={this.state.inputValue} onChange={this.handleInputChange} type = "text"></input>
         {this.renderButton()}
         </form>
